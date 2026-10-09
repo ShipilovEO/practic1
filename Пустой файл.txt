@@ -1,0 +1,159 @@
+#include <stdio.h>
+
+int main(void) {
+    int num2;
+    int num8;
+    int num16;
+
+
+    scanf("%d %x %o", &num2, &num16, &num8);
+    printf("UNIT_ID: %d\n", num2);
+    printf("UNIT_VERSION: %d\n", num16);
+    printf("UNIT_STATUS: %d\n", num8);
+    printf("SUM: %d", num16 + num2 + num8);
+    return 0;
+}
+
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void) {
+    int num0, num1;
+    scanf("%d %d", &num0, &num1);
+    bool nb0 = num0;
+    bool nb1 = num1;
+    printf("MODULE_READY: %d\n", nb0);
+    printf("FAULT_STATE: %d\n", nb1);
+    printf("BOOL_SIZE: %ld\n", sizeof(bool));
+    printf("FLAGS_SUM: %d\n", nb0 + nb1);
+    return 0;
+}
+
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void) {
+    int num0 = 10;
+    int num1 = 010;
+    int num2 = 0x10;
+    printf("DEC_10: %d\nOCT_10: %d\nHEX_10: %d\n", num0, num1, num2);
+    printf("INT_SUFFIX: %ld %ld %ld %ld\n", sizeof(10), sizeof(10u), sizeof(10LL), sizeof(10ULL));
+    printf("FLOAT_SUFFIX: %ld %ld %ld\n", sizeof(0.1f), sizeof(0.1), sizeof(0.1L));
+    printf("FLOAT_EQ: %d\n", 0.1f == 0.1);
+    char str = 'A';
+    printf("CHAR_FORMS: %d %d %d\n", 'A', '\x41', '\101');
+    printf("CHAR_LIT_VAR_STR: %ld %ld %ld\n", sizeof('A'), sizeof(str), sizeof("A"));
+    return 0;
+}
+
+#include <stdio.h>
+#include <limits.h>
+
+int main(void) {
+    printf("INT_MIN: %d\n", INT_MIN);
+    printf("INT_MAX: %d\n", INT_MAX);
+    printf("UINT_MAX: %u\n", UINT_MAX);
+    printf("RANGE_OK: %u", INT_MAX * 2u + 1u == UINT_MAX);
+    return 0;
+}
+
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
+
+
+
+int main(void) {
+    unsigned long long valuesU32 = 
+    printf("INT8: size=%ld, min=%d, max=%d, values=%d\n", sizeof(int8_t), INT8_MIN, INT8_MAX, (INT8_MAX - INT8_MIN) + 1);
+    printf("UINT8: size=%ld, min=0, max=%u, values=%u\n", sizeof(uint8_t), UINT8_MAX, (UINT8_MAX - 0) + 1);
+    printf("INT16: size=%ld, min=%d, max=%d, values=%d\n", sizeof(int16_t), INT16_MIN, INT16_MAX, (INT16_MAX - INT16_MIN) + 1);
+    printf("UINT16: size=%ld, min=0, max=%u, values=%u\n", sizeof(uint16_t), UINT16_MAX, (UINT16_MAX - 0) + 1);
+    printf("INT32: size=%ld, min=%d, max=%d, values=%-lld\n", sizeof(int32_t), INT32_MIN, INT32_MAX, (long long)INT32_MAX - INT32_MIN + 1);
+    printf("UINT32: size=%ld, min=0, max=%u, values=%llu\n", sizeof(uint32_t), UINT32_MAX, ((unsigned long long)UINT32_MAX + 1));
+
+
+    return 0;
+}
+
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
+
+
+
+int main(void) {
+    uint8_t num;
+    scanf("%hhu", &num);
+
+    uint8_t nnum = num;
+    printf("ADD: %hhu\n", nnum + 10);
+
+    nnum = num;
+    printf("MUL2: %hhu\n", nnum * 2);
+
+    nnum = num;
+    printf("SQR: %hhu\n", nnum * nnum);
+
+    return 0;
+}
+
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
+
+
+
+int main(void) {
+    long double num;
+    scanf("%Lf", &num);
+
+    float numf = num;
+
+    double numd = num;
+    printf("FLOAT: %.6f\nDOUBLE: %lf\nLDOUBLE: %Lf\nFLOAT+1: %.6f\nDOUBLE+1: %lf\nLDOUBLE+1: %Lf", numf, numd, num, numf + 1, numd + 1, num + 1);
+
+    return 0;
+}
+
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <float.h>
+
+
+int main(void) {
+    printf("FLOAT: size=%ld, digits=%d, max=%e\n", sizeof(float), FLT_DIG, FLT_MAX);
+    printf("DOUBLE: size=%ld, digits=%d, max=%e\n", sizeof(double), DBL_DIG, DBL_MAX);
+    printf("LDOUBLE: size=%ld, digits=%d, max=%Le\n", sizeof(long double), LDBL_DIG, LDBL_MAX);
+
+    return 0;
+}
+
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <float.h>
+
+
+int main(void) {
+    printf("START");
+    printf("\b\b\b\b\b STOP\a");
+    return 0;
+}
+
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <float.h>
+
+
+int main(void) {
+    int ind;
+    uint8_t stat;
+    float napr;
+    scanf("%x %hho %f", &ind, &stat, &napr);
+    uint8_t checksum = ind + stat;
+    printf("PACKET_ID: %d\nSTATUS_CODE: %d\nSTATUS_CHAR: %c\nVOLTAGE: %.2f\nCHECKSUM: %d", ind, stat, (char)stat, napr, checksum);
+    return 0; 
+}
